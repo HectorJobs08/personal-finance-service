@@ -2,8 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # Routes
-from routes.incomes_router import incomes_router
-from routes.expenses_router import expenses_router
+from routes.categories_router import categories_router
+from routes.transactions_router import transactions_router
+
 
 app = FastAPI()
 
@@ -19,8 +20,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(incomes_router)
-app.include_router(expenses_router)
+app.include_router(transactions_router)
+app.include_router(categories_router)
 
 @app.get("/")
 def read_root():

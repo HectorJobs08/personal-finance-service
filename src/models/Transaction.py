@@ -2,9 +2,10 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
-class Expense(BaseModel):
-    id: Optional[str] = "" 
+class Transaction(BaseModel):
+    category_id: str
     concept: str
     amount: float
+    type: str
     description: str | None = None
-    date: datetime = datetime.now()
+    created_at: datetime = datetime.now()
